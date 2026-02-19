@@ -2,12 +2,9 @@
 - name: Infrastructure Security - Firewall Management
   hosts: all
   become: yes
-  # ตัวแปร firewall_action จะถูกส่งมาจาก Survey ที่คุณตั้งค่าไว้
 
   tasks:
-    # --- กรณีเลือก enable ---
     - name: Section - Enable and Config Firewall
-      when: firewall_action == "enable"
       block:
         - name: 1.1 Install Firewalld
           ansible.builtin.package:
